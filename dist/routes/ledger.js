@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const ledgerController_1 = require("../controllers/ledgerController");
+const auth_1 = require("../middleware/auth");
+const router = (0, express_1.Router)();
+router.get('/', auth_1.optionalAuth, ledgerController_1.getTransactions);
+router.get('/summary', auth_1.optionalAuth, ledgerController_1.getLedgerSummary);
+router.get('/companies', auth_1.optionalAuth, ledgerController_1.getCompanyLedgers);
+router.get('/sellers', auth_1.optionalAuth, ledgerController_1.getSellerLedgers);
+router.get('/transactions', auth_1.optionalAuth, ledgerController_1.getTransactions);
+router.post('/pay', auth_1.optionalAuth, ledgerController_1.recordManualPayment);
+exports.default = router;

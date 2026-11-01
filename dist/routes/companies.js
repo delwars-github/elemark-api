@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const companyController_1 = require("../controllers/companyController");
+const auth_1 = require("../middleware/auth");
+const router = (0, express_1.Router)();
+router.get('/', auth_1.optionalAuth, companyController_1.getCompanies);
+router.get('/:id', auth_1.optionalAuth, companyController_1.getCompanyById);
+router.patch('/:id/verify', auth_1.optionalAuth, companyController_1.verifyCompany);
+exports.default = router;

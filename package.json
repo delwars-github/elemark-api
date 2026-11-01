@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "ts-node src/server.ts",
     "build": "tsc",
+    "postinstall": "npm run build",
     "start": "node dist/server.js",
     "seed": "ts-node src/db/seed.ts"
   },
